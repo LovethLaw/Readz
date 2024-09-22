@@ -10,6 +10,13 @@ const handleDuplicateErrorProd = (err) => {
 	return new AppError(message, 404)
 }
 
+const validationError = (err) => {
+	// Handle specific validation errors
+	const messages = Object.values(err.errors).map(el => el.message)
+	const errmessage = messages.join(". ");
+	return new AppError(errmessage, 400);
+}
+
 const errDev = (err, res) => {
 	res.status(err.statusCode).json({
 		status: err.status,
@@ -47,12 +54,12 @@ module.exports = ((err, req, res, next) => {
 	} else if (process.env.NODE_ENV === 'production') {
 
 		let error = { ...err };
-
 		if (err.name === 'CastError') {
 			error = handleCastErrorProd(err);
 		} else if (err.code === 11000) {
 			error = handleDuplicateErrorProd(err)
-		}
+		} else if (err.name === "ValidationError")
+			error = validationError(err);
 		errProd(error, res);
 	}
 	next();
