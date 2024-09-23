@@ -20,6 +20,7 @@ const App = () => {
 	return (
 		<>
 			{!isMobileOrTablet ? (
+				//! donot touch
 				<div className='main'>
 					<h1>
 						Sorry, this app is only available on mobile or tablet devices.
@@ -30,9 +31,10 @@ const App = () => {
 					</p>
 				</div>
 			) : (
+				// ! start hear
 				<div className='main'>
 					{/* Your mobile-only app goes here */}
-					<h1>Readz is under Construction... </h1>
+					<h1>Readz is under Construction..... </h1>
 					<div className='spinner-container '>
 						<div className='spinner'></div>
 					</div>
