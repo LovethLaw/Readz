@@ -1,0 +1,22 @@
+.saved {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: 20px;
+}
+
+.spacing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.imgSaved {
+    width: 40px;
+    padding: 10px;
+    background-color: hsl(0, 0%, 95%);
+    border-radius: 7px;
+    margin-right: 7px;
+
+}

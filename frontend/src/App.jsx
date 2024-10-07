@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import Dashboard from './component/Dashboard/Dashboard';
 
 const App = () => {
 	const [isMobileOrTablet, setIsMobileOrTablet] = useState(
@@ -20,7 +21,7 @@ const App = () => {
 	return (
 		<>
 			{!isMobileOrTablet ? (
-				//! donot touch
+				//! do not touch
 				<div className='main'>
 					<h1>
 						Sorry, this app is only available on mobile or tablet devices.
@@ -31,13 +32,11 @@ const App = () => {
 					</p>
 				</div>
 			) : (
-				// ! start hear
+				// ! start here
 				<div className='main'>
 					{/* Your mobile-only app goes here */}
-					<h1>Readz is under Construction..... </h1>
-					<div className='spinner-container '>
-						<div className='spinner'></div>
-					</div>
+					<Dashboard />
+				
 				</div>
 			)}
 		</>

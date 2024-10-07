@@ -1,0 +1,20 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.headerContainer {
+    margin-bottom: 20px;
+
+}
+
+.profileImg {
+    width: 30px;
+    border-radius: 50px;
+    margin-block: 10px;
+}
+
+.heading {
+    margin-bottom: 10px;
+}

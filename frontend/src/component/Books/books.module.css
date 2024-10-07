@@ -1,0 +1,18 @@
+.books {
+    width: 100%;
+    margin-block: 20px;
+}
+
+.book {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.bookImg {
+    border-radius: 5px;
+    width: 60px;
+    height: 70px;
+}
