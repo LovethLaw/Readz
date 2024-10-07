@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Dashboard from './component/Dashboard/Dashboard';
 
@@ -35,8 +36,15 @@ const App = () => {
 				// ! start here
 				<div className='main'>
 					{/* Your mobile-only app goes here */}
-					<Dashboard />
-				
+					<Routes>
+						<Route path='/register' element={<h1>register</h1>} />
+						<Route path='/login' element={<h1>Login</h1>} />
+						<Route path='/dashboard' element={<Dashboard />} />
+						<Route path='/notification' element={<h1>Notification</h1>} />
+						<Route path='/profile' element={<h1>profile</h1>} />
+						<Route path='/addBook' element={<h1>Add Book</h1>} />
+						<Route path='*' element={<h1>NOT FOUND 404</h1>} />
+					</Routes>
 				</div>
 			)}
 		</>
