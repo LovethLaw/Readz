@@ -25,6 +25,7 @@ const Footer = () => {
 						<Link to='/addBook'>
 							<AddBoxIcon className={styles.icons} />
 						</Link>
+						
 					</div>
 				</div>
 			</div>

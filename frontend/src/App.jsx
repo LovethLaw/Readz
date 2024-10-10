@@ -4,6 +4,7 @@ import './App.css';
 import Dashboard from './component/Dashboard/Dashboard';
 import Register from './component/register/register';
 import Login from './component/Login/Login';
+import Notifications from './component/Notifications/Notifications';
 
 const App = () => {
 	const [isMobileOrTablet, setIsMobileOrTablet] = useState(
@@ -37,6 +38,7 @@ const App = () => {
 			) : (
 				// ! start here
 				<div className='main'>
+					<Notifications/> 
 					{/* Your mobile-only app goes here */}
 					<Routes>
 						<Route path='/register' element={<Register />} />
