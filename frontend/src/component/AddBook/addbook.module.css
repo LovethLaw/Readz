@@ -1,5 +1,9 @@
 .container {
   min-width: 325px;
+  padding: 15px;
+  display: relative;
+  height: 95svh;
+  text-align: center;
 }
 
 form h1 {

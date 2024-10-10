@@ -4,6 +4,7 @@ import './App.css';
 import Dashboard from './component/Dashboard/Dashboard';
 import Register from './component/register/register';
 import Login from './component/Login/Login';
+import AddBook from './component/AddBook/addbook';
 
 const App = () => {
 	const [isMobileOrTablet, setIsMobileOrTablet] = useState(
@@ -25,7 +26,7 @@ const App = () => {
 		<>
 			{!isMobileOrTablet ? (
 				//! do not touch
-				<div className='main'>
+				<div className='main desktop'>
 					<h1>
 						Sorry, this app is only available on mobile or tablet devices.
 					</h1>
@@ -39,12 +40,13 @@ const App = () => {
 				<div className='main'>
 					{/* Your mobile-only app goes here */}
 					<Routes>
+						<Route path='/' element={<h1>HOME</h1>} />
 						<Route path='/register' element={<Register />} />
 						<Route path='/login' element={<Login />} />
 						<Route path='/dashboard' element={<Dashboard />} />
 						<Route path='/notification' element={<h1>Notification</h1>} />
 						<Route path='/profile' element={<h1>profile</h1>} />
-						<Route path='/addBook' element={<h1>Add Book</h1>} />
+						<Route path='/addBook' element={<AddBook />} />
 						<Route path='*' element={<h1>NOT FOUND 404</h1>} />
 					</Routes>
 				</div>
