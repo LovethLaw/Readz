@@ -1,14 +1,9 @@
-.wrapper {
-  width: 100vw;
-  height: 100vh;
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .container {
   min-width: 325px;
+  padding: 15px;
+  display: relative;
+  height: 95svh;
+  text-align: center;
 }
 
 form h1 {
@@ -36,15 +31,6 @@ form .inputbox {
 
 .inputbox input::placeholder {
   color: black;
-}
-
-.icon {
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 14px;
-  color: lightgray;
 }
 
 form .ternsandcondition {

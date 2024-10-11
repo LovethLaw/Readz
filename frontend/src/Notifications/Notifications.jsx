@@ -1,94 +1,117 @@
-import './notifications.css'
-import setting from './images/setting-icon2.svg'
-import profile from './images/dashboard-profile.jpeg'
+import { allNotifications, mentions, verified } from "./data"
+import PropTypes from 'prop-types';
+import settings from '../assets/setting-icon.png'
+import styles from './notifications.module.css'
+import { useState } from 'react';
+
+const NotificationBody = ({image, name, message, time}) => {
+    return (
+        <div className={styles.notification}>
+        {/* profile image */}
+        <div className={styles.profileImage}>
+            <img src={image} alt="Profile image of the sender"
+            className="styles.profile" />
+        
+        {/* Name and message body */}
+        <div className={styles.nameAndMessage}>
+            <h4>{name}</h4>
+            <p>{message}</p>
+        </div>
+        </div>
+        <div className={styles.time}>
+            <p>{time}</p>
+        </div>
+      
+        </div>
+    )
+}
+
+NotificationBody.propTypes = {
+    image: PropTypes.string,
+    name: PropTypes.string,
+    message: PropTypes.string,
+    time: PropTypes.string
+
+}
+
 
 const Notifications = () => {
+    const [tab, setTab] = useState("All")
   return (
-    <div className='body'>
-        <div className='container'>
-            <div className='top'>
-                <h4>Notifications</h4>
-                <img src={setting} className='icon'/>
-            </div>
-
-            {/*Nav bar */}
-            <div className='nav-bar'>
-                <h6 className='nav-text'>All</h6>
-                <h6 className='nav-text'>Verified</h6>
-                <h6 className='nav-text'>Mentions</h6>
-            </div>
-            <div className='notifications'>
-                <section className="notification-msg">
-                
-                    <div className="saved-icon">
-                        <img src={profile} alt="collections-img" className="img img-collections" />
-                        <div className="saved-item">
-                            <h4>Walt Brain</h4>
-                            <p className='paragraph-text'>So you want information that is summarized from sources?</p>
-                        </div>
-                
-                    </div>
-                
-                    <div>34m</div>
-                </section>
-
-                <section className="notification-msg">
-                
-                    <div className="saved-icon">
-                        <img src={profile} alt="collections-img" className="img img-collections" />
-                        <div className="saved-item">
-                            <h4>Walt Brain</h4>
-                            <p className='paragraph-text'>So you want information that is summarized from sources?</p>
-                        </div>
-                
-                    </div>
-                
-                    <div>34m</div>
-                </section>
-
-                <section className="notification-msg">
-                
-                    <div className="saved-icon">
-                        <img src={profile} alt="collections-img" className="img img-collections" />
-                        <div className="saved-item">
-                            <h4>Walt Brain</h4>
-                            <p className='paragraph-text'>So you want information that is summarized from sources?</p>
-                        </div>
-                
-                    </div>
-                
-                    <div>34m</div>
-                </section>
-
-                <section className="notification-msg">
-                
-                    <div className="saved-icon">
-                        <img src={profile} alt="collections-img" className="img img-collections" />
-                        <div className="saved-item">
-                            <h4>Walt Brain</h4>
-                            <p className='paragraph-text'>So you want information that is summarized from sources?</p>
-                        </div>
-                
-                    </div>
-                
-                    <div>34m</div>
-                </section>
-
-                <section className="notification-msg">
-                
-                    <div className="saved-icon">
-                        <img src={profile} alt="collections-img" className="img img-collections" />
-                        <div className="saved-item">
-                            <h4>Walt Brain</h4>
-                            <p className='paragraph-text'>So you want information that is summarized from sources?</p>
-                        </div>
-                
-                    </div>
-                
-                    <div>34m</div>
-                </section>
-            </div>
+    <div className={styles.allNotifications}>
+        <header>
+            <h1 className={styles.firstHeading}>Notifications</h1>
+            <img src={settings} width={20}/>
+        </header>
+        <section >
+        <div className={styles.buttons}>
+            <button
+            onClick={() => setTab("All")}
+            className={`${styles.button} ${tab === "All" ? styles.activeTab : ''}`}
+            >
+                All
+            </button>
+            
+            <button
+            onClick={() => setTab("Verified")}
+            className={`${styles.button} ${tab === "Verified" ? styles.activeTab : ''}`}
+            >
+                Verified
+            </button>
+            
+            <button
+            onClick={() => setTab("Mentions")}
+            className={`${styles.button} ${tab === "Mentions" ? styles.activeTab : ''}`}
+            >
+                Mentions
+            </button>
         </div>
+
+        <hr className={styles.horizontalLine}/>
+       
+
+    <div>
+        {tab === "All" && 
+        allNotifications.map((notification, index) => {
+        return (
+            <NotificationBody 
+            key={index}
+            image={notification.image}
+            name={notification.name}
+            message={notification.message}
+            time={notification.time}
+            />
+        )}) }
+    
+        {tab === "Verified" && 
+        verified.map((notification, index) => {
+        return (
+            <NotificationBody 
+            key={index}
+            image={notification.image}
+            name={notification.name}
+            message={notification.message}
+            time={notification.time}
+            />
+        )}) }
+   
+
+       
+        {tab === "Mentions" && 
+        mentions.map((notification, index) => {
+        return (
+            <NotificationBody 
+            key={index}
+            image={notification.image}
+            name={notification.name}
+            message={notification.message}
+            time={notification.time}
+            />
+        )}) }
+    
+
+    </div>
+    </section>
     </div>
   )
 }

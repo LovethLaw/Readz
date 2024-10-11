@@ -1,0 +1,59 @@
+.allNotifications {
+    padding-block: 20px;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-block: 30px;
+    padding-inline: 20px;
+}
+
+.firstHeading {
+    padding-left: 10px;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 40px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    
+}
+
+.button {
+    background-color: inherit;
+    padding-bottom: 15px;
+    border: none;
+}
+
+.active {
+    border-bottom: 2px solid black;
+}
+
+hr {
+    border: none;
+    background-color: hsl(0, 0%, 95%);
+    height: 1px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.ImageAndText {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+}
+
+img {
+    width: 20px;
+}
