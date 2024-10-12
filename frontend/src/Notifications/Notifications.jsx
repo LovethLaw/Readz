@@ -8,15 +8,15 @@ const NotificationBody = ({image, name, message, time}) => {
     return (
         <div className={styles.notification}>
         {/* profile image */}
-        <div className={styles.profileImage}>
+        <div className={styles.profileImageAndText}>
             <img src={image} alt="Profile image of the sender"
-            className="styles.profile" />
+            className={styles.profile} />
         
         {/* Name and message body */}
-        <div className={styles.nameAndMessage}>
+            <div className={styles.nameAndMessage}>
             <h4>{name}</h4>
             <p>{message}</p>
-        </div>
+            </div>
         </div>
         <div className={styles.time}>
             <p>{time}</p>
