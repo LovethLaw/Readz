@@ -47,21 +47,20 @@ const Notifications = () => {
         <div className={styles.buttons}>
             <button
             onClick={() => setTab("All")}
-            className={`${styles.button} ${tab === "All" ? styles.activeTab : ''}`}
+            className={`${styles.button} ${tab === "All" ? styles.activeButton : ''}`}
             >
                 All
             </button>
-            
             <button
             onClick={() => setTab("Verified")}
-            className={`${styles.button} ${tab === "Verified" ? styles.activeTab : ''}`}
+            className={`${styles.button} ${tab === "Verified" ? styles.activeButton : ''}`}
             >
                 Verified
             </button>
             
             <button
             onClick={() => setTab("Mentions")}
-            className={`${styles.button} ${tab === "Mentions" ? styles.activeTab : ''}`}
+            className={`${styles.button} ${tab === "Mentions" ? styles.activeButton : ''}`}
             >
                 Mentions
             </button>

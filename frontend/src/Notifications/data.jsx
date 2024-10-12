@@ -4,7 +4,7 @@ export const allNotifications = [
     {
         image: profileImage,
         name: 'Peace Chimamaka',
-        message: 'You really have to be much more serious',
+        message: 'Can we discuss the project details tomorrow?',
         time: '34m'
     },
     {
@@ -22,7 +22,7 @@ export const allNotifications = [
     {
         image: profileImage,
         name: 'Michael Johnson',
-        message: 'Can we discuss the project details tomorrow?',
+        message: 'You really have to be much more serious',
         time: '1h'
     },
     {
