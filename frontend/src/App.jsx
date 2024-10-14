@@ -39,14 +39,13 @@ const App = () => {
 			) : (
 				// ! start here
 				<div className='main'>
-					<Notifications />
 					{/* Your mobile-only app goes here */}
 					<Routes>
 						<Route path='/' element={<h1>HOME</h1>} />
 						<Route path='/register' element={<Register />} />
 						<Route path='/login' element={<Login />} />
 						<Route path='/dashboard' element={<Dashboard />} />
-						<Route path='/notification' element={<h1>Notification</h1>} />
+						<Route path='/notification' element={<Notifications />} />
 						<Route path='/profile' element={<h1>profile</h1>} />
 						<Route path='/addBook' element={<AddBook />} />
 						<Route path='*' element={<h1>NOT FOUND 404</h1>} />

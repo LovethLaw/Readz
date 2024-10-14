@@ -1,52 +1,56 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaUser, FaLock } from 'react-icons/fa';
 import styles from './login.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
 	const navigate = useNavigate();
+	const location = useLocation();
 
-	// State to handle form data
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
 		rememberMe: false,
 	});
 
+	const [errors, setErrors] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
-	// Handle input change for all fields
+
+	useEffect(() => {
+		// Clear previous errors when navigating to this page
+		setErrors([]);
+	}, []);
+
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target;
-		setFormData({
-			...formData,
+		setFormData((prevState) => ({
+			...prevState,
 			[name]: type === 'checkbox' ? checked : value,
-		});
+		}));
 	};
 
-	// Handle form submission
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setIsLoading(true);
 
-		// try {
-		// 	// Send a POST request to the backend API
-		// 	const response = await axios.post(
-		// 		'https://your-backend-api/login',
-		// 		formData
-		// 	);
+		try {
+			const response = await axios.post(
+				'http://localhost:8001/api/v1/users/login',
+				formData
+			);
 
-		// 	if (response.status === 200) {
-		// 		// Navigate to home/dashboard page upon successful login
-		// 		navigate('/dashboard');
-		// 	}
-		// } catch (error) {
-		// 	console.error('Login failed:', error);
-		// 	// Handle login error (e.g., show an error message to the user)
-		// }
-		setTimeout(() => {
-			navigate('/dashboard');
-		}, 5000);
+			if (response.status === 200) {
+				localStorage.setItem('token', response.data.token);
+				navigate(location.pathname === '/login' ? '/dashboard' : '/', {
+					replace: true,
+				});
+			}
+		} catch (error) {
+			setErrors(error.response.data.status);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	return (
@@ -54,6 +58,7 @@ const Login = () => {
 			<div className={styles.container}>
 				<form onSubmit={handleSubmit}>
 					<h1>Sign In</h1>
+					{errors}
 					<div className={`form ${styles.inputbox}`}>
 						<input
 							type='email'

@@ -31,25 +31,21 @@ const Register = () => {
 		e.preventDefault();
 		setIsLoading(true);
 
-		// try {
-		// 	// Send a POST request to the backend API
-		// 	const response = await axios.post(
-		// 		'https://your-backend-api/register',
-		// 		formData
-		// 	);
+		try {
+			// Send a POST request to the backend API
+			const response = await axios.post(
+				'http://localhost:8001/api/v1/users/signup',
+				formData
+			);
 
-		// 	if (response.status === 201) {
-		// 		// Redirect to login page on successful registration
-		// 		navigate('/login');
-		// 	}
-		// } catch (error) {
-		// 	console.error('Error registering user:', error);
-		// 	// Handle error, e.g., show a message to the user
-		// }
-
-		setTimeout(() => {
-			navigate('/login');
-		}, 5000);
+			if (response.status === 201) {
+				// Redirect to login page on successful registration
+				navigate('/login');
+			}
+		} catch (error) {
+			console.error('Error registering user:', error);
+			// Handle error, e.g., show a message to the user
+		}
 	};
 
 	return (
