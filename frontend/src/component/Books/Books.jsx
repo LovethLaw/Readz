@@ -9,7 +9,7 @@ const Book = ({ name, description, author, image }) => {
 			<div>
 				<h2>{name}</h2>
 				<p> {description}</p>
-				<p>{author}</p>
+				<p className={styles.author}>{author}</p>
 			</div>
 		</div>
 	);

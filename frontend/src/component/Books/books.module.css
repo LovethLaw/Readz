@@ -20,3 +20,13 @@
 p {
     font-weight: 500;
 }
+
+h2 {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.author{
+    font-size: large;
+    font-weight: 900;
+}

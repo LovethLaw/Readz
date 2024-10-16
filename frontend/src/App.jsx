@@ -42,7 +42,6 @@ const App = () => {
 				// ! start here
 				<div className='main'>
 					{/* Your mobile-only app goes here */}
-					<Profile />
 					<Routes>
 						<Route path='/' element={<h1>HOME</h1>} />
 						<Route path='/register' element={<Register />} />
