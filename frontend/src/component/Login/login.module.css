@@ -7,6 +7,14 @@
   align-items: center;
 }
 
+
+.error {
+  position: absolute;
+  font-weight: 800;
+  font-size: 1.5rem;
+  top: 20px;
+}
+
 .container {
   min-width: 325px;
 }

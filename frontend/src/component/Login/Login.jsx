@@ -47,7 +47,7 @@ const Login = () => {
 				});
 			}
 		} catch (error) {
-			setErrors(error.response.data.status);
+			setErrors(error.response.data.message);
 		} finally {
 			setIsLoading(false);
 		}
@@ -57,8 +57,9 @@ const Login = () => {
 		<div className={`${styles.wrapper}`}>
 			<div className={styles.container}>
 				<form onSubmit={handleSubmit}>
+					<div className={styles.error}>{errors}</div>
+
 					<h1>Sign In</h1>
-					{errors}
 					<div className={`form ${styles.inputbox}`}>
 						<input
 							type='email'

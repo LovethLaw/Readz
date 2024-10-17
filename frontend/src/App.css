@@ -9,6 +9,9 @@
   place-content: center;
   justify-content: center;
   place-items: center;
+  height: 100svh;
+  background: black;
+  color: white;
 }
 
 /* .main {

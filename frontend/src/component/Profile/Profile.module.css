@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,8 +6,9 @@
 
 .container {
     padding: 20px;
+    height: 100svh;
     background-color: hsl(0, 0%, 96%);
-    
+
 }
 
 h1 {
@@ -24,6 +25,18 @@ p {
     font-size: 16px;
 }
 
+.logoutBtn {
+    padding: 10px 120px;
+    background-color: hsl(0, 4%, 5%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+
+}
 
 
 .header {
@@ -32,7 +45,7 @@ p {
     width: 55%;
     justify-content: space-between;
     align-items: center;
-} 
+}
 
 .main {
     display: flex;
@@ -48,10 +61,14 @@ p {
     border-radius: 50%;
 }
 
-.profileBtn{
+.profileBtn {
     padding: 10px 120px;
-    background-color: hsl(0, 0%, 90%);
+    background-color: hsl(0, 4%, 5%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
     border: none;
     border-radius: 15px;
     font-weight: bold;
+    margin-top: 10px;
 }

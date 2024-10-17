@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
-import { books } from './all_books';
 import styles from './books.module.css';
 
-const Book = ({ name, description, author, image }) => {
+const Book = ({ endDate, description, author, image }) => {
 	return (
 		<div className={styles.book}>
 			<img src={image} alt={name} className={styles.bookImg} />
 			<div>
-				<h2>{name}</h2>
-				<p> {description}</p>
-				<p className={styles.author}>{author}</p>
+				<p>
+					Author: <span className={styles.author}>{author}</span>
+				</p>
+				<p>Desc: {description}</p>
+				<p>End Date: {new Date(endDate).toDateString()}</p>
 			</div>
 		</div>
 	);
@@ -22,6 +23,7 @@ Book.propTypes = {
 	description: PropTypes.string.isRequired,
 	author: PropTypes.string.isRequired,
 	image: PropTypes.string.isRequired, // Added image validation
+	endDate: PropTypes.string.isRequired,
 };
 
 // Default props
@@ -32,7 +34,6 @@ Book.defaultProps = {
 };
 
 const Books = ({ content }) => {
-	console.log(content);
 	return (
 		<div className={styles.books}>
 			{content.map((eachBook) => (
@@ -42,6 +43,7 @@ const Books = ({ content }) => {
 					description={eachBook.description}
 					author={eachBook.author}
 					image={eachBook.book_url}
+					endDate={eachBook.endDate}
 				/>
 			))}
 		</div>

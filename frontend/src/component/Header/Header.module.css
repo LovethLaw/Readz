@@ -10,9 +10,13 @@
 }
 
 .profileImg {
-    width: 30px;
-    border-radius: 50px;
-    margin-block: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profileImg h3 {
+    font-size: 2rem;
 }
 
 .heading {

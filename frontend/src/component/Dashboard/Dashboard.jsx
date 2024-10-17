@@ -4,10 +4,12 @@ import Books from '../Books/Books';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
 	const [books, setBooks] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const fetchBooks = async () => {
@@ -20,8 +22,12 @@ const Dashboard = () => {
 					}
 				);
 				setBooks(response.data.data.books);
+
+				console.log(response);
 			} catch (error) {
-				console.error('Error fetching books:', error);
+				if (error.status === 404 || error.status === 500) {
+					navigate('/login');
+				}
 				// Handle error appropriately (e.g., show an error message to the user)
 			} finally {
 				setLoading(false);
@@ -29,7 +35,7 @@ const Dashboard = () => {
 		};
 
 		fetchBooks();
-	}, []);
+	}, [navigate]);
 
 	return (
 		<>
